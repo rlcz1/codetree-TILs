@@ -11,8 +11,8 @@ int main() {
     cin >> m1 >> d1 >> m2 >> d2;
 
     int res1 = d1, res2 = d2;
-    for (int i = 0; i <= m1; i++) res1 += day[i];
-    for (int i = 0; i <= m2; i++) res2 += day[i];
+    for (int i = 0; i < m1; i++) res1 += day[i];
+    for (int i = 0; i < m2; i++) res2 += day[i];
 
     int idx = ((res2 - res1) % 7);
     if (idx < 0) idx += 7;
