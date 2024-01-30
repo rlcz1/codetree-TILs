@@ -1,22 +1,24 @@
 #include <iostream>
-#define MAX 45
+#define MAX 46
 
 using namespace std;
 
-int main() {
-    int n;
-    int dp[MAX] = {};
+int memo[MAX] = {};
 
+int Fibo(int n) {
+    if (memo[n] != -1) return memo[n]; // 이미 n번째 값을 구해본 적이 있다면 memo에 있는 값 반환
+    if (n <= 2) memo[n] = 1;
+    else memo[n] = Fibo(n-1) + Fibo(n-2);
+    return memo[n];
+}
+
+int main() {
+    fill_n(memo, MAX, -1);
+
+    int n;
     cin >> n;
 
-    dp[1] = 1;
-    dp[2] = 1;
-
-    for (int i = 3; i <= n; i++) {
-        dp[i] = dp[i-1] + dp[i-2];
-    }
-
-    cout << dp[n];
+    cout << Fibo(n);
 
     return 0;
 }
