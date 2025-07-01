@@ -8,16 +8,20 @@ public class Main {
         int d2 = sc.nextInt();
         
         int[] days = new int[]{0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-        String[] weekDays = new String[]{"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+        String[] weekDays = new String[]{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
 
-        int sum = -d1;
-        for (int i = m1; i < m2; i++) {
-            sum += days[i];
+        int start = d1;
+        for (int i = 0; i < m1; i++) {
+            start += days[i];
         }
-        sum += d2 + 1;
+        int end = d2;
+        for (int i = 0; i < m2; i++) {
+            end += days[i];
+        }
 
-        String res = weekDays[sum % 7];
+        int min = end - start;
+        
+        String res = weekDays[(min % 7 + 7) % 7];
         System.out.println(res);
-
     }
 }
