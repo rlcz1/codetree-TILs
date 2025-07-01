@@ -11,6 +11,7 @@ public class Main {
         int mins = (C - 11);
 
         int res = days + hours + mins;
+        if (res < 0) res = -1;
         System.out.println(res);
     }
 }
